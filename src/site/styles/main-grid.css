@@ -1,60 +1,62 @@
-/* Обращаемся напрямую к тегам внутри твоего класса из YAML */
-.cards-grid table {
+/* Ищем таблицу внутри основного контента */
+main.content .table-wrapper table {
     display: block !important;
     border: none !important;
     width: 100% !important;
 }
 
-.cards-grid thead {
+/* Прячем заголовок "Разделы" внутри таблицы */
+main.content .table-wrapper thead {
     display: none !important;
 }
 
-.cards-grid tbody {
+/* Делаем сетку из тела таблицы */
+main.content .table-wrapper tbody {
     display: grid !important;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+    /* Адаптивная сетка: минимум 200px на карточку */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
     gap: 1.5rem !important;
     border: none !important;
+    padding: 1rem 0 !important;
 }
 
-/* Строка таблицы становится карточкой */
-.cards-grid tr {
+/* Каждая строка (tr) становится карточкой */
+main.content .table-wrapper tr {
     display: flex !important;
     flex-direction: column !important;
+    align-items: center !important;
     background-color: var(--background-secondary) !important;
     border: 1px solid var(--background-modifier-border) !important;
     border-radius: 12px !important;
     padding: 15px !important;
-    height: 100% !important;
     transition: transform 0.2s ease !important;
 }
 
-.cards-grid tr:hover {
-    transform: translateY(-5px) !important;
+main.content .table-wrapper tr:hover {
+    transform: translateY(-4px) !important;
     border-color: var(--interactive-accent) !important;
 }
 
-/* Ячейка (содержит и фото, и ссылку) */
-.cards-grid td {
+/* Стили для ячейки с контентом */
+main.content .table-wrapper td {
     display: block !important;
     border: none !important;
     padding: 0 !important;
     text-align: center !important;
-    width: 100% !important;
 }
 
-/* Стилизация картинки внутри ячейки */
-.cards-grid td img {
+/* Картинка */
+main.content .table-wrapper img {
     width: 100% !important;
-    max-height: 250px !important;
+    height: 200px !important;
     object-fit: cover !important;
     border-radius: 8px !important;
     margin-bottom: 10px !important;
 }
 
-/* Стилизация ссылки */
-.cards-grid td a {
-    font-weight: bold !important;
+/* Ссылка на раздел */
+main.content .table-wrapper a.internal-link {
+    font-weight: 600 !important;
     text-decoration: none !important;
-    display: block !important;
-    margin-top: 5px !important;
+    color: var(--text-normal) !important;
 }
