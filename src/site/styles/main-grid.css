@@ -1,14 +1,14 @@
-/* Обращаемся к таблице через твой класс из YAML */
+/* Обращаемся напрямую к тегам внутри твоего класса из YAML */
 .cards-grid table {
     display: block !important;
     border: none !important;
+    width: 100% !important;
 }
 
 .cards-grid thead {
     display: none !important;
 }
 
-/* Сама сетка */
 .cards-grid tbody {
     display: grid !important;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
@@ -16,37 +16,45 @@
     border: none !important;
 }
 
-/* Каждая строка превращается в карточку */
+/* Строка таблицы становится карточкой */
 .cards-grid tr {
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important;
     background-color: var(--background-secondary) !important;
     border: 1px solid var(--background-modifier-border) !important;
     border-radius: 12px !important;
     padding: 15px !important;
     height: 100% !important;
+    transition: transform 0.2s ease !important;
 }
 
-/* Ячейки (картинка и ссылка) */
+.cards-grid tr:hover {
+    transform: translateY(-5px) !important;
+    border-color: var(--interactive-accent) !important;
+}
+
+/* Ячейка (содержит и фото, и ссылку) */
 .cards-grid td {
     display: block !important;
     border: none !important;
-    padding: 5px 0 !important;
-    width: 100% !important;
+    padding: 0 !important;
     text-align: center !important;
+    width: 100% !important;
 }
 
-/* Картинка */
-.cards-grid img {
+/* Стилизация картинки внутри ячейки */
+.cards-grid td img {
     width: 100% !important;
     max-height: 250px !important;
     object-fit: cover !important;
     border-radius: 8px !important;
+    margin-bottom: 10px !important;
 }
 
-/* Ссылка */
-.cards-grid a {
+/* Стилизация ссылки */
+.cards-grid td a {
     font-weight: bold !important;
     text-decoration: none !important;
+    display: block !important;
+    margin-top: 5px !important;
 }
