@@ -1,4 +1,4 @@
-/* Container for the grid */
+/* Обращаемся к таблице через твой класс из YAML */
 .cards-grid table {
     display: block !important;
     border: none !important;
@@ -8,15 +8,15 @@
     display: none !important;
 }
 
-/* Creating the grid from table body */
+/* Сама сетка */
 .cards-grid tbody {
     display: grid !important;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
     gap: 1.5rem !important;
     border: none !important;
 }
 
-/* Turning rows into cards */
+/* Каждая строка превращается в карточку */
 .cards-grid tr {
     display: flex !important;
     flex-direction: column !important;
@@ -25,33 +25,28 @@
     border: 1px solid var(--background-modifier-border) !important;
     border-radius: 12px !important;
     padding: 15px !important;
-    transition: transform 0.2s ease !important;
+    height: 100% !important;
 }
 
-.cards-grid tr:hover {
-    transform: translateY(-5px) !important;
-    border-color: var(--interactive-accent) !important;
-}
-
-/* Image styling */
+/* Ячейки (картинка и ссылка) */
 .cards-grid td {
     display: block !important;
     border: none !important;
-    padding: 0 !important;
+    padding: 5px 0 !important;
+    width: 100% !important;
     text-align: center !important;
 }
 
+/* Картинка */
 .cards-grid img {
     width: 100% !important;
-    height: 200px !important;
+    max-height: 250px !important;
     object-fit: cover !important;
     border-radius: 8px !important;
-    margin-bottom: 10px !important;
 }
 
-/* Link styling */
+/* Ссылка */
 .cards-grid a {
-    font-weight: 600 !important;
+    font-weight: bold !important;
     text-decoration: none !important;
-    font-size: 1.1rem !important;
 }
